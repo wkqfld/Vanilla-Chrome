@@ -1,0 +1,4 @@
+/* 요소를 숨기는 class 만들기 -> 특정 요소에 아래 css로 만든 classname을 주면 요소가 숨겨짐 */
+.hidden{
+    display: none;
+}

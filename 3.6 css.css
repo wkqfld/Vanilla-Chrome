@@ -1,0 +1,16 @@
+body{
+    background-color: beige;
+}
+h1{
+    color: cornflowerblue;
+    transition:color .5s ease-in-out;
+}
+
+/* active라는 class를 css에서 생성(?!) */
+/* JS로 h1에 active class를 전달 */
+.active{
+    color: tomato;
+}
+.sexyfont{
+    font-style: italic;
+}
