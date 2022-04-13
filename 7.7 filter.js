@@ -65,3 +65,52 @@ if (savedToDos) {
   toDos = parsedToDos;
   parsedToDos.forEach(paintToDo); // forEach((item) => paintToDo)), 배열 안의 요소들 각각을 paintToDo가 받는 인자인 newToDo로 전달해줘서 painToDo 함수 실행
 }
+
+// 기존 배열에서 특정 요소를 제외하고 새로운 배열 만들기
+// 기존 배열의 object를 유지하기 위해서는 true를 리턴해야함, false는 제외됨
+function filterAll() {
+  return true;
+}
+
+[1, 2, 3, 4].filter(filterAll); // foreach 함수처럼 filterFunc 함수를 각 요소에 대해 한번씩 돌아가면서 불러준다
+
+console.log([1, 2, 3, 4].filter(filterAll)); // >> [1, 2, 3, 4]
+
+function filterPart(item) {
+  return item !== 3;
+}
+// item이 3이 아니면 True를 return
+
+console.log([1, 2, 3, 4].filter(filterPart)); // >> [1, 2, 4]
+
+const arr = ['pizza', 'banana', 'tomato'];
+function filterBanana(food) {
+  return food !== 'banana';
+}
+console.log(arr.filter(filterBanana)); // >> ['pizza', 'tomato']
+
+const todoArr = [
+  { text: 'hello', id: 1649890178074 },
+  { text: 'bye', id: 1649890613642 },
+];
+
+function filterTodo(todo) {
+  return todo.id !== 1649890178074;
+}
+console.log(todoArr.filter(filterTodo));
+/* >>
+0: {text: 'bye', id: 1649890613642}
+length: 1
+[[Prototype]]: Array(0)
+*/
+
+const anyArr = [{ text: 'lalala' }, { text: 'hahaha' }];
+function filterAny(any) {
+  return any.text !== 'lalala';
+}
+console.log(anyArr.filter(filterAny));
+/*
+0: {text: 'hahaha'}
+length: 1
+[[Prototype]]: Array(0)
+*/
