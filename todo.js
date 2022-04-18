@@ -14,9 +14,14 @@ function saveToDos() {
 
 // toDoList 삭제하는 함수
 function deleteToDo(event) {
+  // 1) 화면에서 요소를 삭제하기
   const li = event.target.parentElement;
-  console.log(li.id);
   li.remove();
+
+  // 2) localStorage에서 DB 삭제하기
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+  // parseInt : 문자열을 숫자로 바꿔줌. toDo.id는 숫자, li.id는 문자열이기 때문에 필요한 작업
+  saveToDos(); // 새로운 toDo를 localStorage에 저장
 }
 
 // ul 안에 li/span/button 만들어주는 함수 (createElement)
@@ -48,7 +53,7 @@ function handleToDoSubmit(event) {
     id: Date.now(), // id로 각각의 li item 구별해서, 사용자가 선택한 list를 지울 수 있게 도와준다
   };
   toDos.push(newTodoObj);
-  paintToDo(newTodoObj); // newTodo 값을 받아서 paintToDo 함수 실행
+  paintToDo(newTodoObj); // newTodo 값을 받아서 paintToDo 함수 실행 (paint안의 delete 함수도 text와 id가 있는 newTodoObj를 받음)
   saveToDos();
 }
 
